@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - TIMMY.com</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <style>
+      body {
+        background-color: #ffecec;
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar {
+        background-color: #002953; /* สีน้ำเงิน */
+        padding: 10px;
+      }
+      .navbar-brand {
+        color: white !important; /* เปลี่ยนสีลิงก์เป็นสีขาว */
+        font-size: 35px; /* ปรับขนาดตัวอักษร */
+        font-weight: bold;
+        margin-left: 20px;
+      }
+
+      .navbar a {
+        color: white; /* เปลี่ยนสีลิงก์เป็นสีขาว */
+        margin-left: 20px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      .left-section {
+        flex: 1;
+        text-align: center;
+      }
+
+      .left-section img {
+        width: 550px;
+        height: auto;
+        margin-top: 50px;
+        margin-right: 50px;
+        margin-left: 80px;
+      }
+
+      .right-section {
+        border-radius: 15px; /*ปรับขอบมน*/
+        flex: 1;
+        max-width: 400px;
+        min-height: 430px;
+        padding: 10px;
+        background-color: #f8f9fa; /* พื้นหลังเล็กน้อย */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+        margin-right: 50px; /* เว้นระยะจากขอบขวา */
+        margin-top: 80px; /* เลื่อนลงมาตรงกลาง */
+      }
+
+      .right-section h2 {
+        text-align: center;
+        font-weight: 700;
+        font-size: 50px;
+      }
+
+      .form-control {
+        margin-bottom: 15px;
+        max-width: 85%; /*กำหนดขนาดช่อง*/
+      }
+
+      .btn-login {
+        background-color: #ffcc00;
+        border: none;
+        padding: 10px 20px;
+        width: 100%;
+        font-size: 18px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+      .btn-login1 {
+        border: none;
+        padding: 10px 20px;
+        width: 100%;
+        font-size: 18px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-login:hover {
+        background-color: #ffcc00; /* ยังคงเป็นสีเหลืองเดิมเมื่อชี้เมาส์ */
+        box-shadow: 0px 8px 15px rgba(128, 128, 128, 0.5); /* เพิ่มเงาสีเทาเมื่อชี้เมาส์ */
+        transform: translateY(-2px); /* ยกปุ่มขึ้นเล็กน้อยเมื่อชี้เมาส์ */
+        cursor: pointer; /* แสดงรูปมือเพื่อบ่งบอกว่าปุ่มสามารถคลิกได้ */
+      }
+
+      .link-signup {
+        background-color: #ffcc00; /* สีพื้นหลังของปุ่ม */
+        border: none;
+        padding: 10px 20px; /* ขนาด padding */
+        font-size: 18px;
+        font-weight: bold;
+        color: #000; /* สีข้อความ */
+        text-decoration: none; /* ไม่มีเส้นใต้สำหรับลิงก์ */
+        transition: all 0.3s ease; /* เพิ่มความนุ่มนวลในการเปลี่ยนแปลง */
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">TIMMY.com</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <!-- ใช้ ms-auto เพื่อจัดให้ไปทางขวา -->
+            <li class="nav-item">
+              <a href="Formlogin.html" class="btn-login1">Login</a>
+            </li>
+            <li class="nav-item">
+              <a href="register.html" class="link-signup">Sign up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- Section ซ้าย -->
+      <div class="left-section margin-left">
+        <img src="img/Timmylogo2.png" alt="TIMMY Mascot" />
+        <!-- ปรับ path รูปภาพ -->
+      </div>
+
+      <!-- Section ขวา -->
+      <div class="right-section">
+        <br />
+        <h2>Login</h2>
+        <br />
+        <br />
+        <form action="Login.php" method="POST">
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <div class="text-right">
+            <a href="#" class="small">Forgot password?</a>
+          </div>
+          <br />
+          <br />
+          <button type="submit" class="btn btn-login">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

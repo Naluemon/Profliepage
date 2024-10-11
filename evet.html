@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>addevent2</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <style>
+      body {
+        background-color: #dadada;
+        font-family: sans-serif;
+      }
+      .container {
+        width: 500px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #00275e;
+        font-weight: bold;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+      }
+      .color-radio {
+        display: none;
+      }
+      .color-label {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 5px;
+        font-size: 1em;
+        color: white;
+      }
+      .color-label.red {
+        background-color: red;
+      }
+      .color-label.blue {
+        background-color: blue;
+      }
+      .color-label.green {
+        background-color: green;
+      }
+      .color-label.yellow {
+        background-color: yellow;
+      }
+      .color-label.gray {
+        background-color: rgb(207, 207, 207);
+      }
+
+      /* When radio button is selected */
+      .color-radio:checked + .color-label {
+        box-shadow: 0 0 0 4px #333;
+        opacity: 0.8;
+      }
+      .btn-set {
+        background-color: #cccccc;
+        width: 60px;
+        color: #000000;
+      }
+      .btn-save {
+        background-color: #006aff;
+        border-radius: 5px;
+        border: 2px solid #006aff;
+        width: 60px;
+        color: #ffffff;
+      }
+      .btn-cancel {
+        background-color: #ff0000;
+        border-radius: 5px;
+        border: 2px solid #ff0000;
+        width: 60px;
+        color: #ffffff;
+      }
+      input[type="radio"] {
+        zoom: 0.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Add Event</h2>
+      <label for="add-event">Event :</label>
+      <input type="text" id="text" placeholder="Add Event" /><br />
+      <section id="schedule">
+        <div class="section-content">
+          <label for="task-time">Time:</label><br />
+          <input type="datetime-local" id="Event" />
+          <button type="save" class="btn-set">set</button>
+          <ul id="color-list" class="list"></ul>
+        </div>
+      </section>
+
+      <script>
+        let alarms = [];
+        let schedules = [];
+
+        // Set Alarm
+        function setAlarm() {
+          const time = document.getElementById("alarm-time").value;
+          if (time) {
+            alarms.push(time);
+            displayAlarms();
+            setNotification(`Alarm set for ${time}`, time);
+          }
+        }
+
+        // Display alarms
+        function displayAlarms() {
+          const alarmList = document.getElementById("alarm-list");
+          alarmList.innerHTML = "";
+          alarms.forEach((alarm) => {
+            const li = document.createElement("li");
+            li.textContent = `Alarm at ${alarm}`;
+            alarmList.appendChild(li);
+          });
+        }
+
+        // Add Schedule Task
+        function addSchedule() {
+          const taskName = document.getElementById("event-name").value;
+          const taskTime = document.getElementById("event-time").value;
+          if (taskName && taskTime) {
+            schedules.push({ taskName, taskTime });
+            displaySchedule();
+            setNotification(
+              `Task "${taskName}" scheduled at ${taskTime}`,
+              taskTime
+            );
+          }
+        }
+
+        // Display scheduled tasks
+        function displaySchedule() {
+          const scheduleList = document.getElementById("schedule-list");
+          scheduleList.innerHTML = "";
+          schedules.forEach((schedule) => {
+            const li = document.createElement("li");
+            li.textContent = `${schedule.taskName} at ${schedule.taskTime}`;
+            scheduleList.appendChild(li);
+          });
+        }
+
+        // Set Notifications
+        function setNotification(message, time) {
+          const notificationList = document.getElementById("notification-list");
+          const li = document.createElement("li");
+          li.textContent = `${message} - Time: ${time}`;
+          notificationList.appendChild(li);
+        }
+      </script>
+    </div>
+    <div style="text-align: right">
+      <button type="cancel" class="btn-cancel">cancel</button>
+      <button type="save" class="btn-save">save</button>
+    </div>
+  </body>
+</html>

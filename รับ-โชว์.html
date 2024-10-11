@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ปฏิทินบันทึกกิจกรรม</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      #calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      #calendar div {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: center;
+      }
+
+      #eventForm {
+        margin-top: 20px;
+      }
+
+      button {
+        padding: 5px 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ปฏิทินบันทึกกิจกรรม</h1>
+    <div id="calendar"></div>
+
+    <!-- ฟอร์มสำหรับเพิ่มกิจกรรม -->
+    <div id="eventForm">
+      <h3>เพิ่มกิจกรรม</h3>
+      <label for="eventDate">วันที่:</label>
+      <input type="date" id="eventDate" /><br /><br />
+      <label for="eventDescription">กิจกรรม:</label>
+      <input type="text" id="eventDescription" /><br /><br />
+      <button onclick="addEvent()">บันทึกกิจกรรม</button>
+    </div>
+
+    <script>
+      // สร้างปฏิทินสำหรับเดือนปัจจุบัน
+      const calendar = document.getElementById("calendar");
+      const daysInMonth = 31; // สมมติเดือนมี 31 วัน
+
+      for (let i = 1; i <= daysInMonth; i++) {
+        let dayBox = document.createElement("div");
+        dayBox.innerHTML = i;
+        dayBox.setAttribute("id", `day-${i}`);
+        dayBox.addEventListener("click", () => selectDate(i)); // เมื่อคลิกวันที่จะเรียกฟังก์ชัน selectDate
+        calendar.appendChild(dayBox);
+      }
+
+      // กำหนดวันที่ที่ถูกเลือก
+      let selectedDate = null;
+
+      function selectDate(day) {
+        selectedDate = day;
+        document.getElementById("eventDate").value = `2024-10-${String(
+          day
+        ).padStart(2, "0")}`;
+      }
+
+      // ฟังก์ชันสำหรับเพิ่มกิจกรรม
+      function addEvent() {
+        const eventDate = document.getElementById("eventDate").value;
+        const eventDescription =
+          document.getElementById("eventDescription").value;
+
+        if (eventDate && eventDescription) {
+          const dayNumber = parseInt(eventDate.split("-")[2]);
+          const dayElement = document.getElementById(`day-${dayNumber}`);
+
+          let eventLabel = document.createElement("div");
+          eventLabel.style.color = "green";
+          eventLabel.innerHTML = eventDescription;
+          dayElement.appendChild(eventLabel);
+
+          // ล้างข้อมูลหลังจากบันทึกกิจกรรม
+          document.getElementById("eventDescription").value = "";
+        } else {
+          alert("กรุณากรอกข้อมูลให้ครบ");
+        }
+      }
+    </script>
+  </body>
+</html>

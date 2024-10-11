@@ -1,0 +1,126 @@
+body {
+  background-color: #ffecec;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #002953; /* สีน้ำเงิน */
+  padding: 10px;
+}
+.navbar-brand {
+  color: white !important; /* เปลี่ยนสีลิงก์เป็นสีขาว */
+  font-size: 35px; /* ปรับขนาดตัวอักษร */
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.navbar a {
+  color: white; /* เปลี่ยนสีลิงก์เป็นสีขาว */
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container {
+  margin-top: 10px;
+  width: 35%;
+  align-items: center;
+}
+
+.left-section {
+  flex: 1;
+  text-align: center;
+}
+
+.left-section img {
+  width: 550px;
+  height: auto;
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-left: 80px;
+}
+
+.right-section {
+  flex: 1;
+  max-width: 400px;
+  min-height: 430px;
+  padding: 20px;
+  background-color: #f8f9fa; /* พื้นหลังเล็กน้อย */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+  margin-right: 200px; /* เว้นระยะจากขอบขวา */
+  margin-top: 80px; /* เลื่อนลงมาตรงกลาง */
+}
+
+.right-section h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+  font-size: 15px;
+  padding: 10px;
+}
+.nav-link {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 50px;
+}
+.nav-link:hover {
+  color: #dc9e15 !important;
+}
+.nav-link.profile {
+  color: #dc9e15 !important;
+}
+.navbar-nav {
+  margin-right: 30px; /* เพิ่มระยะห่างจากขอบขวา */
+}
+/*เนื้อหา จากตรงนี้*/
+.headpf {
+  font-size: 40px;
+  text-align: center;
+  color: #00275e;
+  font-weight: bold;
+  margin-top: 20px;
+  /* margin-top: 30px; */
+}
+.form-group {
+  display: flex; /* จัดให้อยู่ในแถวเดียวกัน */
+  align-items: center; /* จัดตำแหน่งแนวตั้งให้อยู่กึ่งกลาง */
+  margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง */
+  text-align: right;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #00275e;
+}
+
+label {
+  width: 100px; /* กำหนดความกว้างของ label */
+  margin-right: 10px; /* เพิ่มระยะห่างระหว่าง label กับ input */
+}
+
+input {
+  flex: 1; /* กำหนด input ให้ขยายเต็มพื้นที่ */
+  color: rgb(209, 209, 209);
+}
+.btn-edit {
+  background-color: #006aff;
+  border-radius: 5px;
+  border: 2px solid #006aff;
+  width: 70px;
+  color: #ffffff;
+  margin-right: 5px; /* จัดปุ่มให้อยู่กึ่งกลาง */
+  padding: 10px 20px; /* เพิ่มระยะห่างภายในปุ่ม */
+  text-align: center;
+}
+.btn-cancel {
+  background-color: #ff0000;
+  border-radius: 5px;
+  border: 2px solid #ff0000;
+  width: 70px;
+  color: #ffffff;
+  margin-right: 5px; /* จัดปุ่มให้อยู่กึ่งกลาง */
+  padding: 10px 20px; /* เพิ่มระยะห่างภายในปุ่ม */
+  text-align: center;
+}
